@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Office</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Office container */
+  #officeContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #111;
+    background-image: url('assets/images/office_panorama.jpg'); /* replace with your panorama */
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Door buttons */
+  .doorBtn {
+    position: absolute;
+    width: 80px;
+    height: 150px;
+    background-color: rgba(255,0,0,0.5);
+    cursor: pointer;
+    border: 2px solid white;
+    transition: all 0.2s;
+  }
+
+  .doorBtn:hover {
+    background-color: rgba(255,0,0,0.8);
+  }
+
+  #leftDoor { left: 20px; bottom: 50px; }
+  #rightDoor { right: 20px; bottom: 50px; }
+
+  /* Camera button */
+  #cameraBtn {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 25px;
+    font-size: 1.2em;
+    background-color: white;
+    color: black;
+    border: none;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+  <div id="officeContainer">
+    <div id="leftDoor" class="doorBtn"></div>
+    <div id="rightDoor" class="doorBtn"></div>
+    <button id="cameraBtn">Camera</button>
+  </div>
+
+  <script>
+    const leftDoor = document.getElementById('leftDoor');
+    const rightDoor = document.getElementById('rightDoor');
+    const cameraBtn = document.getElementById('cameraBtn');
+
+    leftDoor.addEventListener('click', () => {
+      alert("Left door clicked!"); // Later: toggle door open/close + power drain
+    });
+
+    rightDoor.addEventListener('click', () => {
+      alert("Right door clicked!");
+    });
+
+    cameraBtn.addEventListener('click', () => {
+      alert("Camera opened!"); // Later: show camera overlay
+    });
+  </script>
+</body>
+</html>

@@ -4,109 +4,90 @@
   <meta charset="UTF-8">
   <title>خمس ليالي جحيمية مع الدب</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap');
-
     body, html {
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100%;
       background-color: black;
-      font-family: 'Cairo', sans-serif;
+      font-family: Arial, sans-serif;
       overflow: hidden;
       color: white;
+      direction: rtl; /* Arabic text right-to-left */
     }
 
     /* Main container */
     #menuContainer {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       height: 100%;
       padding: 50px;
     }
 
-    /* Left side (text + button) */
+    /* Left side (title + button) */
     #leftSide {
       display: flex;
       flex-direction: column;
-      gap: 30px;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 40px;
     }
 
-    /* Title text */
+    /* Stacked title */
     #title {
-      font-size: 3em;
-      color: red;
-      text-shadow: 0 0 10px red, 0 0 20px white;
-      animation: flicker 1.5s infinite;
-    }
-
-    @keyframes flicker {
-      0%, 19%, 21%, 50%, 52%, 100% { opacity: 1; }
-      20%, 51% { opacity: 0.3; }
-    }
-
-    /* Play button */
-    #playBtn {
-      padding: 20px 50px;
-      font-size: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-size: 2.5em;
+      font-weight: bold;
       color: white;
-      background: transparent;
-      border: 2px solid white;
+      text-align: left;
+    }
+
+    /* START button */
+    #startBtn {
+      padding: 20px 50px;
+      font-size: 1.8em;
+      color: black;
+      background-color: white;
+      border: none;
       cursor: pointer;
       transition: all 0.2s ease;
     }
 
-    #playBtn:hover {
-      color: red;
-      border-color: red;
-      transform: scale(1.1);
-      text-shadow: 0 0 10px red, 0 0 20px white;
-      animation: shake 0.2s infinite;
-    }
-
-    @keyframes shake {
-      0% { transform: translate(0,0); }
-      25% { transform: translate(1px,0); }
-      50% { transform: translate(0,0); }
-      75% { transform: translate(-1px,0); }
-      100% { transform: translate(0,0); }
+    #startBtn:hover {
+      background-color: #ccc;
+      transform: scale(1.05);
     }
 
     /* Right side (Freddy placeholder) */
     #rightSide {
-      position: relative;
       width: 400px;
       height: 400px;
-    }
-
-    #freddy {
-      width: 100%;
-      height: 100%;
       background-color: darkred; /* placeholder for Freddy image */
       opacity: 0.8;
     }
   </style>
 </head>
 <body>
-
   <div id="menuContainer">
     <div id="leftSide">
-      <div id="title">خمس ليالي جحيمية مع الدب</div>
-      <button id="playBtn">ابدأ</button>
+      <div id="title">
+        <div>خمس</div>
+        <div>ليالي</div>
+        <div>جحيمية</div>
+        <div>مع</div>
+        <div>الدب</div>
+      </div>
+      <button id="startBtn">ابدأ</button>
     </div>
-    <div id="rightSide">
-      <div id="freddy"></div>
-    </div>
+    <div id="rightSide"></div>
   </div>
 
   <script>
-    const playBtn = document.getElementById('playBtn');
-
-    playBtn.addEventListener('click', () => {
-      // Placeholder: go to cutscene page
-      alert("Cutscene starts here!");
-      // later you can replace with: window.location.href = "cutscene.html";
+    const startBtn = document.getElementById('startBtn');
+    startBtn.addEventListener('click', () => {
+      alert("This will go to cutscene!"); // Replace later with window.location.href = "cutscene.html";
     });
   </script>
 </body>

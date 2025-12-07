@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cutscene</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      font-family: Arial, sans-serif;
+      color: white;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 50px;
+      overflow: hidden;
+    }
+
+    #cutsceneText {
+      font-size: 2em;
+      line-height: 1.5em;
+      max-width: 600px;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <div id="cutsceneText"></div>
+
+  <script>
+    const cutsceneText = [
+      "You have been sent to this...",
+      "place...",
+      "All these monsters have been starved",
+      "and you are what they will be eating.",
+      "They will do ANYTHING to get in",
+      "Survive until...",
+      "You won't be able to..."
+    ];
+
+    const textDiv = document.getElementById('cutsceneText');
+    let index = 0;
+
+    function showNextText() {
+      if(index < cutsceneText.length){
+        textDiv.textContent = cutsceneText[index];
+        textDiv.style.opacity = 1;
+
+        // Fade out after 2.5 seconds
+        setTimeout(() => {
+          textDiv.style.opacity = 0;
+          index++;
+          setTimeout(showNextText, 1000); // Wait before next text fades in
+        }, 2500);
+      } else {
+        // After cutscene ends → go to office page
+        setTimeout(() => {
+          alert("Cutscene over! Go to office..."); 
+          // Replace with: window.location.href = "office.html";
+        }, 1000);
+      }
+    }
+
+    showNextText();
+  </script>
+</body>
+</html>
